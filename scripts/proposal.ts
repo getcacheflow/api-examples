@@ -4,23 +4,8 @@ const axios = require('axios').default;
 
 dotenv.config();
 
-
-
-//const request = require('request');
-
 console.log(`Using api token: ${process.env.API_TOKEN}`);
 console.log(`Using api host: ${process.env.API_HOST}`);
-
-
-// request.get(`${process.env.API_HOST}/api/latest/proposals`, {
-//   'auth': {
-//     'bearer': process.env.API_TOKEN
-//   }
-// }).on('response', (response:Response) => {
-//     console.log(response.statusCode) // 200
-//     console.log(response.body) // 'image/png'
-//   })
-
 
 console.log('API: proposal list');
 const url = `${process.env.API_HOST}`
