@@ -10,4 +10,6 @@ PRODUCT_ID=c7cb9e42-0277-111111111
 PLAN_SET_ID=4193b599-111111111
 ```
 
-Then run `yarn run proposal`
+Then run:
+* `yarn run proposal`
+* `yarn run proposal:activate`

@@ -31,9 +31,10 @@ const body = {
     "name": "Lucille Bluths House",
     "orderNumber" : "1234ABCD",
     "startDate": "2022-01-09",
-    "termType": "year",
-    "termQty": "1",
+    "termType": "quarter",
+    "termQty": "12",
     "amount": 800000,
+    "status": "draft",
     "contacts": [ {
         "firstName": "Buster",
         "lastName": "Bluth",
@@ -54,7 +55,3 @@ instance.post('/api/latest/proposals', body).then((response:AxiosResponse) => {
 console.log(response.status);
 console.log(response.data);
 });
-
-
-
-
