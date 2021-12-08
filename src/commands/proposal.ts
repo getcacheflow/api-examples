@@ -1,6 +1,6 @@
 import {Command, flags} from '@oclif/command'
 import { CacheflowApi } from '../api'
-import { Proposal, CreateProposalRequest } from "../api/types";
+import { CreateProposalRequest } from "../api/types";
 import {cli} from 'cli-ux';
 import * as faker from 'faker';
 
@@ -45,7 +45,7 @@ export default class ProposalCommand extends Command {
 
   activate(id:string) {
     const apiClient = new CacheflowApi();
-    const response: Promise<Proposal> = apiClient.activateProposal(id);
+    const response: Promise<any> = apiClient.activateProposal(id);
     response.then( data => {
         this.log(`Proposal status is now ${data.status}`);
     })
@@ -53,13 +53,14 @@ export default class ProposalCommand extends Command {
 
   create() {
     const body:CreateProposalRequest = {
-        name: faker.commerce.product(),
+        name: "My proposal",
         orderNumber: "1234ABCD",
         startDate: "2022-01-09",
-        termType: "quarter",
+        termType: "month",
         termQty: 12,
-        amount: 800000,
+        amount: 700000,
         status: "draft",
+        customTerms: "Some more info on bananas",
         contacts: [ {
             firstName: faker.name.firstName(),
             lastName: faker.name.lastName(),
@@ -76,7 +77,7 @@ export default class ProposalCommand extends Command {
     };
 
     const apiClient = new CacheflowApi();
-    const response: Promise<Proposal> = apiClient.createProposal(body);
+    const response: Promise<any> = apiClient.createProposal(body);
     response.then( data => {
         this.log(`Proposal created  ${data.id}`);
     })
@@ -84,7 +85,7 @@ export default class ProposalCommand extends Command {
 
   list() {
     const apiClient = new CacheflowApi();
-    const proposals:Promise<Proposal[]> = apiClient.getProposals();
+    const proposals:Promise<any[]> = apiClient.getProposals();
     proposals.then(data => {
         cli.table(data, {
             id: {
