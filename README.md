@@ -30,3 +30,5 @@ For proposals:
 * `./bin/run proposal list` - list proposals
 
 ## Proposal fields
+
+See [./src/api/types.ts](./src/api/types.ts) for type information 
