@@ -1,6 +1,7 @@
-import { AxiosInstance, AxiosResponse } from "axios";
+import {AxiosInstance, AxiosResponse} from "axios";
 import * as dotenv from "dotenv";
-import { Proposal, CreateProposalRequest } from "./types";
+import {CreateProposalRequest} from "./types";
+
 const axios = require('axios').default;
 
 dotenv.config();
@@ -24,33 +25,43 @@ export class CacheflowApi {
         };
     }
 
-    client() : AxiosInstance {
-        const instance = axios.create({
+    client(): AxiosInstance {
+        return axios.create({
             baseURL: this.url,
             headers: this.headers
         });
-        return instance;
     }
 
-    createProposal(body:CreateProposalRequest) : Promise<Proposal> {
-        let responseObj:Promise<Proposal> = this.client().post('/api/latest/proposals', body).then((response:AxiosResponse) => {
-            return response.data;
-        });
+    createProposal(body: CreateProposalRequest): Promise<any> {
+        let responseObj: Promise<any> = this.client()
+            .post('/api/latest/proposals', body)
+            .then((response: AxiosResponse) => {
+                return response.data;
+            }).catch(error=>{
+                console.log(error.response.data);
+            });
         return responseObj;
     }
 
 
-    activateProposal(id:string) : Promise<Proposal> {
-        let responseObj:Promise<Proposal> = this.client().post(`/api/latest/proposals/${id}/activate`).then((response:AxiosResponse) => {
-            return response.data;
-        });
+    activateProposal(id: string): Promise<any> {
+        let responseObj: Promise<any> = this.client()
+            .post(`/api/latest/proposals/${id}/activate`)
+            .then((response: AxiosResponse) => {
+                return response.data;
+            }).catch(error=>{
+                console.log(error.response.data);
+            })
         return responseObj;
     }
 
-    getProposals() : Promise<Proposal[]> {
-        return this.client().get('/api/latest/proposals').then((response:AxiosResponse) => {
-            return response.data as Proposal[];
-        });
+    getProposals(): Promise<any[]> {
+        return this.client()
+            .get('/api/latest/proposals')
+            .then((response: AxiosResponse) => {
+                return response.data;
+            }).catch(error=>{
+                console.log(error.response.data);
+            })
     }
-    
-};
+}
