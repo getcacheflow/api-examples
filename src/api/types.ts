@@ -9,11 +9,11 @@ export interface CreateProposalRequest {
   
     /** @format date */
     expiresAt?: string;       // if not set it will never expire
-    orderNumber?: string;     // an external identifier, invoice or order numner
+    orderNumber?: string;     // an external identifier, invoice or order number
   
     /** @format uuid */
     paymentPlanSetId?: string; // required to activate
-    contactIds?: string[];     // a list of prexisting contacts
+    contactIds?: string[];     // a list of preexisting contacts
     itemIds?: string[];        // a list of products
     contacts?: Contact[];      // the contacts that have access to this proposal
     termType: "month" | "quarter" | "year";
@@ -22,13 +22,13 @@ export interface CreateProposalRequest {
     customTerms?: string;      // anything else you want to add in this proposal
   
     /** @format uuid */
-    customerId?: string;       // a preexisitng customer id
+    customerId?: string;       // a preexisting customer id
     customer?: Customer;
   }
 
 export interface Customer {
     /** @format uuid */
-    id?: string;               // a preexisitng id
+    id?: string;               // a preexisting id
     name?: string;             // first and last name of the customer
     externalId?: string;       // a unique identifier from another system
     source?: string;           // the source system for this customer. ex: Salesforce
@@ -38,7 +38,7 @@ export interface Customer {
 
 export interface Contact {
     /** @format uuid */
-    id?: string;                // a preexisitng id
+    id?: string;                // a preexisting id
 
     firstName: string;
     lastName: string;
