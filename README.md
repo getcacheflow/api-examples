@@ -3,6 +3,10 @@ This project contains an olif implementation to illustrate how to use the cachef
 
 The commands represent different calls and can be used as an example of the calls.
 
+## Setup
+
+See [./SETUP.md](./SETUP.md) for setting up your API key and webhooks
+
 ## Using examples
 
 To build:
@@ -31,4 +35,7 @@ For proposals:
 
 ## Proposal fields
 
-See [./src/api/types.ts](./src/api/types.ts) for type information 
+See [./src/api/types.ts](./src/api/types.ts) for type information
+
+### Proposal check out experience will be at
+https://{domain}.checkout.{env}.getcacheflow.com/p/{id}?email=bob@avengers.com

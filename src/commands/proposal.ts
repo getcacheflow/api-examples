@@ -57,9 +57,9 @@ export default class ProposalCommand extends Command {
         orderNumber: "1234ABCD",
         startDate: "2022-01-09",
         termType: "month",
-        termQty: 12,
-        amount: 700000,
-        status: "draft",
+        termQty: 6,
+        amount: 500000,
+        status: "active",
         customTerms: "Some more info on bananas",
         contacts: [ {
             firstName: faker.name.firstName(),
